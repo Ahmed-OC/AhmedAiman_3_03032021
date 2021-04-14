@@ -2,3 +2,11 @@
 {
     margin: 0 auto;
 }
+h2
+{
+    margin: 0px 0px 30px 6%;
+}
+.card-shadow
+{
+    box-shadow: 1px 4px 10px darken($primary-bg-color, 10%);
+}
