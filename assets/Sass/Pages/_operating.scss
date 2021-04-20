@@ -12,6 +12,7 @@
         height: 75px;
         background-color: $primary-bg-color;
         display: flex;
+        cursor: pointer;
         align-items: center;
         margin-bottom: 30px;
         &_num
@@ -33,6 +34,13 @@
             color: darken($color: $primary-bg-color, $amount: 50%);
             font-size: 20px;
             margin-right: 27px;
+        }
+        &:hover
+        {
+            i
+            {
+                color: $primary-color;
+            }
         }
     }
 

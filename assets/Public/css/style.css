@@ -83,7 +83,7 @@ footer ul li a {
 }
 .menu_restaurant_heading {
   display: flex;
-  justify-content: space-between;
+  position: relative;
   margin: 0px 20px 40px 0px;
 }
 .menu_restaurant_heading h1 {
@@ -92,12 +92,13 @@ footer ul li a {
   font-family: "Shrikhand", sans-serif;
 }
 .menu_restaurant_heading i {
+  position: absolute;
+  right: 0px;
   align-self: center;
   font-size: 21px;
 }
 .menu_restaurant_card {
   position: relative;
-  width: 91%;
   padding: 13px 22px 13px 11px;
   height: 42px;
   margin-bottom: 15px;
@@ -132,19 +133,102 @@ footer ul li a {
 
 .btn {
   height: 50px;
-  font-size: 16px;
-  background: linear-gradient(170deg, #FF79DA, #9356DC);
   border-radius: 30px;
   color: white;
+  background: linear-gradient(170deg, #FF79DA, #9356DC);
+  font-size: 16px;
+  position: relative;
   padding: 0px 18px;
   border: none;
+  cursor: pointer;
+  z-index: 1;
+  box-shadow: 1px 4px 10px #dddddd;
 }
 .btn_order {
   padding: 0px 50px;
-  margin: 40px auto 0 auto;
   display: block;
+  margin: 40px auto 0px auto;
+}
+.btn:hover::after {
+  opacity: 1;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(170deg, #ff93e1, #a16be0);
+  box-shadow: 1px 4px 10px #777777;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 250ms;
+  border-radius: 30px;
 }
 
+.empty-heart {
+  cursor: pointer;
+}
+.empty-heart:hover > .filled-heart {
+  transform: scale(1.1);
+}
+
+.filled-heart {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: scale(0);
+  transition: transform 500ms;
+  background: linear-gradient(45deg, #ff93e1, #a16be0);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.loader {
+  position: fixed;
+  margin: -76px 0 0 -76px;
+  left: 50%;
+  top: 50%;
+  border: 16px solid #9356DC;
+  border-top: 16px solid #FF79DA;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1.5s linear 3, loader-opacity 3s;
+  z-index: -1;
+  opacity: 0;
+}
+
+#content {
+  opacity: 1;
+  animation: anim-content 3s;
+}
+
+@keyframes anim-content {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loader-opacity {
+  25% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+}
 .search_localisation {
   display: flex;
   height: 50px;
@@ -179,6 +263,7 @@ footer ul li a {
   height: 75px;
   background-color: #F6F6F6;
   display: flex;
+  cursor: pointer;
   align-items: center;
   margin-bottom: 30px;
 }
@@ -199,6 +284,9 @@ footer ul li a {
   color: #777777;
   font-size: 20px;
   margin-right: 27px;
+}
+.operating_card:hover i {
+  color: #9356DC;
 }
 
 #restaurants {
@@ -237,10 +325,8 @@ footer ul li a {
   margin: 17px 0px 0px 14px;
   position: relative;
 }
-.restaurant_card_description i {
+.restaurant_card_description > i {
   position: absolute;
-  align-self: flex-end;
-  justify-self: center;
   font-size: 21px;
   right: 24px;
   top: 6px;
