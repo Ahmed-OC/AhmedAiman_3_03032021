@@ -368,6 +368,9 @@ footer ul li a {
   font-size: 20px;
   margin-right: 27px;
 }
+.operating_card:hover {
+  background-color: #f2eafb;
+}
 .operating_card:hover i {
   color: #9356DC;
 }
