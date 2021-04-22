@@ -98,7 +98,11 @@ footer ul li a {
   font-size: 21px;
 }
 .menu_restaurant_card {
+  display: flex;
+  cursor: pointer;
+  justify-content: space-between;
   position: relative;
+  overflow: hidden;
   padding: 13px 22px 13px 11px;
   height: 42px;
   margin-bottom: 15px;
@@ -121,16 +125,95 @@ footer ul li a {
 }
 .menu_restaurant_card h3 {
   margin-bottom: 3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .menu_restaurant_card p {
   font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .menu_restaurant_card_price {
+  align-self: flex-end;
+}
+.menu_restaurant_card_animation {
+  transform: translate(70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
-  right: 22PX;
-  bottom: 13PX;
+  right: 0px;
+  top: 0px;
+  background-color: #99E2D0;
+  color: white;
+  border-radius: 0px 15px 15px 0px;
+  height: 68px;
+  width: 70px;
+}
+.menu_restaurant_card_animation i {
+  font-size: 22px;
+}
+.menu_restaurant_card_description {
+  overflow: hidden;
 }
 
+/* Animation apparition fondu des menus */
+.menu_restaurant_starter {
+  animation: showing-menu 1s linear both;
+}
+.menu_restaurant_dish {
+  animation: showing-menu 1s 1s linear both;
+}
+.menu_restaurant_dessert {
+  animation: showing-menu 1s 2s linear both;
+}
+
+@keyframes showing-menu {
+  0% {
+    opacity: 0;
+    transform: translate(0, 50px);
+  }
+  60% {
+    opacity: 0;
+  }
+}
+/* Animation validation menu */
+.menu_restaurant_card:hover .menu_restaurant_card_animation {
+  animation: sweep-validation 350ms linear both;
+}
+.menu_restaurant_card:hover .menu_restaurant_card_animation i {
+  animation: validation-rotation 350ms linear both;
+}
+.menu_restaurant_card:hover .menu_restaurant_card_price {
+  animation: sweep-price 350ms linear both;
+}
+
+@keyframes sweep-validation {
+  0% {
+    transform: translate(70px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}
+@keyframes validation-rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes sweep-price {
+  0% {
+    margin-right: 0px;
+  }
+  100% {
+    margin-right: 70px;
+  }
+}
 .btn {
   height: 50px;
   border-radius: 30px;
