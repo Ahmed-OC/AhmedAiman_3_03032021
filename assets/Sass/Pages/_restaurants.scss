@@ -10,8 +10,10 @@
 }
 .restaurant
 {
-    &_card
+    &__card
     {
+        @include card-shadow;
+        @include center;
         display: block;
         height: 250px;
         width: 88%;
@@ -21,7 +23,7 @@
         text-decoration: none;
         color: black;
         position: relative;
-        &_img
+        &__img
         {
             overflow: hidden;
             height: 174px;
@@ -35,7 +37,7 @@
                 bottom: 62px;
             }
         }
-        &_description
+        &__description
         {
             margin: 17px 0px 0px 14px;
             position: relative;
@@ -50,6 +52,17 @@
             {
                 margin-top: 3px;
             }
+        }
+    }
+    @media screen and (min-width: 1024px) {
+        &__card
+        {
+            width: 45%;
+        }
+        &__responsive
+        {
+            display: flex;
+            flex-wrap: wrap;
         }
     }
 

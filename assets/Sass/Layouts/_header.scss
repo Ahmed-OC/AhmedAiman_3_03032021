@@ -3,13 +3,14 @@ header
     position: relative;
     img
     {
+        @include center;
         display: block;
         width: 165px;
         padding: 22px 0px 12px 0px;
     }
    
 }
- .return_btn
+ .return__btn
 {
     position: absolute;
     color: #353535;

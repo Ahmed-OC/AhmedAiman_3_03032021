@@ -5,8 +5,10 @@
 }
 .operating
 {
-    &_card
+    &__card
     {
+        @include card-shadow;
+        @include center;
         border-radius: 30px;
         width: 87%;
         height: 75px;
@@ -15,7 +17,7 @@
         cursor: pointer;
         align-items: center;
         margin-bottom: 30px;
-        &_num
+        &__num
         {
             display: flex;
             color: white;

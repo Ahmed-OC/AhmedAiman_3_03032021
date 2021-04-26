@@ -3,16 +3,8 @@
   padding: 0px;
 }
 
-.center {
-  margin: 0 auto;
-}
-
 h2 {
   margin: 0px 0px 30px 6%;
-}
-
-.card-shadow {
-  box-shadow: 1px 4px 10px #dddddd;
 }
 
 * {
@@ -27,12 +19,13 @@ header {
   position: relative;
 }
 header img {
+  margin: 0px auto;
   display: block;
   width: 165px;
   padding: 22px 0px 12px 0px;
 }
 
-.return_btn {
+.return__btn {
   position: absolute;
   color: #353535;
   top: 25px;
@@ -67,37 +60,42 @@ footer ul li a {
   color: white;
 }
 
-.menu_img {
+@media screen and (min-width: 1024px) {
+  footer {
+    text-align: center;
+  }
+}
+.menu__img {
   height: 220px;
 }
-.menu_img--pos {
+.menu__img--pos {
   height: 250px;
   width: 100%;
   object-fit: cover;
 }
-.menu_restaurant {
+.menu__restaurant {
   position: relative;
   background-color: #F6F6F6;
   padding: 30px 20px 58px 20px;
   border-radius: 20px 20px 0px 0px;
 }
-.menu_restaurant_heading {
+.menu__restaurant__heading {
   display: flex;
   position: relative;
   margin: 0px 20px 40px 0px;
 }
-.menu_restaurant_heading h1 {
+.menu__restaurant__heading h1 {
   font-weight: 100;
   font-size: 28px;
   font-family: "Shrikhand", sans-serif;
 }
-.menu_restaurant_heading i {
+.menu__restaurant__heading i {
   position: absolute;
   right: 0px;
   align-self: center;
   font-size: 21px;
 }
-.menu_restaurant_card {
+.menu__restaurant__card {
   display: flex;
   cursor: pointer;
   justify-content: space-between;
@@ -109,13 +107,13 @@ footer ul li a {
   border-radius: 15px;
   background-color: white;
 }
-.menu_restaurant_card_heading {
+.menu__restaurant__card__heading {
   text-transform: uppercase;
   padding-bottom: 3px;
   margin-left: 5px;
   margin-top: 35px;
 }
-.menu_restaurant_card_heading--border {
+.menu__restaurant__card__heading--border {
   width: 40px;
   display: block;
   height: 3px;
@@ -123,22 +121,23 @@ footer ul li a {
   margin-bottom: 15px;
   background-color: #99E2D0;
 }
-.menu_restaurant_card h3 {
+.menu__restaurant__card h3 {
   margin-bottom: 3px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.menu_restaurant_card p {
+.menu__restaurant__card p {
   font-size: 14px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
 }
-.menu_restaurant_card_price {
+.menu__restaurant__card__price {
   align-self: flex-end;
+  transition: margin-right 500ms;
 }
-.menu_restaurant_card_animation {
+.menu__restaurant__card__animation {
   transform: translate(70px);
   display: flex;
   justify-content: center;
@@ -151,22 +150,24 @@ footer ul li a {
   border-radius: 0px 15px 15px 0px;
   height: 68px;
   width: 70px;
+  transition: transform 500ms;
 }
-.menu_restaurant_card_animation i {
+.menu__restaurant__card__animation i {
   font-size: 22px;
+  transition: transform 500ms;
 }
-.menu_restaurant_card_description {
+.menu__restaurant__card__description {
   overflow: hidden;
 }
 
 /* Animation apparition fondu des menus */
-.menu_restaurant_starter {
+.menu__restaurant__starter {
   animation: showing-menu 1s linear both;
 }
-.menu_restaurant_dish {
+.menu__restaurant__dish {
   animation: showing-menu 1s 1s linear both;
 }
-.menu_restaurant_dessert {
+.menu__restaurant__dessert {
   animation: showing-menu 1s 2s linear both;
 }
 
@@ -180,40 +181,16 @@ footer ul li a {
   }
 }
 /* Animation validation menu */
-.menu_restaurant_card:hover .menu_restaurant_card_animation {
-  animation: sweep-validation 350ms linear both;
+.menu__restaurant__card:hover .menu__restaurant__card__animation {
+  transform: translate(0px);
 }
-.menu_restaurant_card:hover .menu_restaurant_card_animation i {
-  animation: validation-rotation 350ms linear both;
+.menu__restaurant__card:hover .menu__restaurant__card__animation i {
+  transform: rotate(360deg);
 }
-.menu_restaurant_card:hover .menu_restaurant_card_price {
-  animation: sweep-price 350ms linear both;
+.menu__restaurant__card:hover .menu__restaurant__card__price {
+  margin-right: 70px;
 }
 
-@keyframes sweep-validation {
-  0% {
-    transform: translate(70px);
-  }
-  100% {
-    transform: translate(0px);
-  }
-}
-@keyframes validation-rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes sweep-price {
-  0% {
-    margin-right: 0px;
-  }
-  100% {
-    margin-right: 70px;
-  }
-}
 .btn {
   height: 50px;
   border-radius: 30px;
@@ -227,7 +204,7 @@ footer ul li a {
   z-index: 1;
   box-shadow: 1px 4px 10px #dddddd;
 }
-.btn_order {
+.btn__order {
   padding: 0px 50px;
   display: block;
   margin: 40px auto 0px auto;
@@ -312,7 +289,8 @@ footer ul li a {
     opacity: 1;
   }
 }
-.search_localisation {
+.search__localisation {
+  margin: 0px auto;
   display: flex;
   height: 50px;
   justify-content: center;
@@ -320,19 +298,19 @@ footer ul li a {
   background-color: #e9e9e9;
   box-shadow: inset 5px 13px 5px -10px #cecece;
 }
-.search_localisation p {
+.search__localisation p {
   margin-left: 18px;
 }
-.search_localisation i {
+.search__localisation i {
   position: relative;
   bottom: 2px;
 }
-.search_restaurant {
+.search__restaurant {
   background-color: #F6F6F6;
   text-align: center;
   padding: 45px 47px 35px 47px;
 }
-.search_restaurant h1, .search_restaurant p {
+.search__restaurant h1, .search__restaurant p {
   margin-bottom: 25px;
 }
 
@@ -340,7 +318,9 @@ footer ul li a {
   margin: 50px 0px 68px 0px;
 }
 
-.operating_card {
+.operating__card {
+  box-shadow: 1px 4px 10px #dddddd;
+  margin: 0px auto;
   border-radius: 30px;
   width: 87%;
   height: 75px;
@@ -350,7 +330,7 @@ footer ul li a {
   align-items: center;
   margin-bottom: 30px;
 }
-.operating_card_num {
+.operating__card__num {
   display: flex;
   color: white;
   justify-content: center;
@@ -363,15 +343,15 @@ footer ul li a {
   right: 10px;
   margin-right: 12px;
 }
-.operating_card i {
+.operating__card i {
   color: #777777;
   font-size: 20px;
   margin-right: 27px;
 }
-.operating_card:hover {
+.operating__card:hover {
   background-color: #f2eafb;
 }
-.operating_card:hover i {
+.operating__card:hover i {
   color: #9356DC;
 }
 
@@ -384,7 +364,9 @@ footer ul li a {
   margin-bottom: 27px;
 }
 
-.restaurant_card {
+.restaurant__card {
+  box-shadow: 1px 4px 10px #dddddd;
+  margin: 0px auto;
   display: block;
   height: 250px;
   width: 88%;
@@ -395,30 +377,39 @@ footer ul li a {
   color: black;
   position: relative;
 }
-.restaurant_card_img {
+.restaurant__card__img {
   overflow: hidden;
   height: 174px;
   border-radius: 20px 20px 0px 0px;
 }
-.restaurant_card_img img {
+.restaurant__card__img img {
   object-fit: cover;
   width: 100%;
   height: 250px;
   position: relative;
   bottom: 62px;
 }
-.restaurant_card_description {
+.restaurant__card__description {
   margin: 17px 0px 0px 14px;
   position: relative;
 }
-.restaurant_card_description > i {
+.restaurant__card__description > i {
   position: absolute;
   font-size: 21px;
   right: 24px;
   top: 6px;
 }
-.restaurant_card_description p {
+.restaurant__card__description p {
   margin-top: 3px;
+}
+@media screen and (min-width: 1024px) {
+  .restaurant__card {
+    width: 45%;
+  }
+  .restaurant__responsive {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
 .new::after {

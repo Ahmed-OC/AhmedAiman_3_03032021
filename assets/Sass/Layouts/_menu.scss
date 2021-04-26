@@ -1,6 +1,6 @@
 .menu
 {
-    &_img
+    &__img
     {
         height: 220px;
         &--pos
@@ -10,13 +10,13 @@
             object-fit: cover;
         }
     }
-    &_restaurant
+    &__restaurant
     {
         position: relative;
         background-color: $primary-bg-color;
         padding: 30px 20px 58px 20px;
         border-radius: 20px 20px 0px 0px;
-        &_heading
+        &__heading
         {
             display: flex;
             position: relative;
@@ -36,7 +36,7 @@
             }
             
         }
-        &_card
+        &__card
         {
             display: flex;
             cursor: pointer;
@@ -48,7 +48,7 @@
             margin-bottom: 15px;
             border-radius: 15px;
             background-color: white;
-            &_heading
+            &__heading
             {
                 text-transform: uppercase;
                 padding-bottom: 3px;
@@ -79,11 +79,12 @@
                 white-space: nowrap;
                 overflow: hidden;
             }
-            &_price
+            &__price
             {
                 align-self: flex-end;
+                transition: margin-right 500ms;
             }
-            &_animation
+            &__animation
             {
                 transform: translate(70px);
                 display: flex;
@@ -97,12 +98,14 @@
                 border-radius: 0px 15px 15px 0px;
                 height: 68px;
                 width: 70px;
+                transition: transform 500ms ;
                 i
                 {
                     font-size: 22px;
+                    transition: transform 500ms;
                 }
             }
-            &_description
+            &__description
             {
                 overflow: hidden;
             }
@@ -115,20 +118,20 @@
 
 .menu
 {
-    &_restaurant
+    &__restaurant
     {
-        &_starter
+        &__starter
         {
 
             animation: showing-menu 1s linear both;
 
         }
-        &_dish
+        &__dish
         {
 
             animation: showing-menu 1s 1s linear both;
         }
-        &_dessert
+        &__dessert
         {
 
             animation: showing-menu 1s 2s linear both;
@@ -145,41 +148,25 @@
 
 /* Animation validation menu */
 
-.menu_restaurant_card
+.menu__restaurant__card
 {
     &:hover
     {
-        .menu_restaurant_card
+        .menu__restaurant__card
         {
-            &_animation
+            &__animation
             {
-                animation: sweep-validation 350ms linear both ;
+                transform: translate(0px) ;
                 i
                 {
-                    animation: validation-rotation 350ms linear both ;
+                    transform: rotate(360deg);
                 }
             }
-            &_price
+            &__price
             {
-                animation: sweep-price 350ms linear both;
+                margin-right: 70px;
             }
         }
         
     }
-}
-
-@keyframes sweep-validation
-{
-    0%{transform:translate(70px);}
-    100%{transform:translate(0px);}
-}
-@keyframes validation-rotation
-{
-    0%{transform:rotate(0deg);}
-    100%{transform:rotate(360deg);}
-}
-@keyframes sweep-price
-{
-    0%{margin-right: 0px;}
-    100%{margin-right: 70px;}
 }
