@@ -1,0 +1,21 @@
+*
+{
+    margin: 0px;
+    padding: 0px;
+}
+@import "utils/variable";
+@import "utils/mixins";
+@import "base/shaping";
+@import "base/font";
+@import "layouts/header";
+@import "layouts/footer";
+@import "layouts/menu";
+@import "components/buttons";
+@import "components/heart";
+@import "pages/loader";
+@import "pages/search";
+@import "pages/operating";
+@import "pages/restaurants";
+
+
+
